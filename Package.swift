@@ -4,22 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftPackageWrapperFramework",
+    name: "SwiftPackageWrapper",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "SwiftPackageWrapperFramework",
+            name: "SwiftPackageWrapper",
             type: .dynamic,
-            targets: ["SwiftPackageWrapper"]),
+            targets: ["SwiftPackageWrapperTarget"]),
     ],
     dependencies: [
         .package(url: "https://github.com/xmartlabs/Eureka.git", exact: "5.3.6"),
     ],
     targets: [
         .target(
-            name: "SwiftPackageWrapper",
+            name: "SwiftPackageWrapperTarget",
             dependencies: [
                 "Eureka",
             ],
@@ -30,7 +30,7 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "SwiftPackageWrapperTests",
-            dependencies: ["SwiftPackageWrapper"]),
+            name: "SwiftPackageWrapperTargetTests",
+            dependencies: ["SwiftPackageWrapperTarget"]),
     ]
 )
